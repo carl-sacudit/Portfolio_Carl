@@ -1,9 +1,12 @@
+
 import "./Techtools.css";
 import { createElement } from "react";
 import {
   FaCode,
+  FaBrain,
   FaCss3Alt,
   FaDatabase,
+  FaEnvelope,
   FaGitAlt,
   FaGithub,
   FaHtml5,
@@ -11,9 +14,22 @@ import {
   FaLayerGroup,
   FaMousePointer,
   FaNodeJs,
+  FaPlug,
   FaReact,
+  FaPalette,
+  FaMobileAlt,
 } from "react-icons/fa";
-import { SiFirebase } from "react-icons/si";
+import {
+  SiAppsmith,
+  SiFirebase,
+  SiGooglemaps,
+  SiGooglesheets,
+  SiLeaflet,
+  SiTypescript,
+  SiTailwindcss,
+  SiFigma,
+  SiShadcnui,
+} from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 
 const GROUPS = [
@@ -25,6 +41,8 @@ const GROUPS = [
       { name: "HTML5", Icon: FaHtml5 },
       { name: "CSS3", Icon: FaCss3Alt },
       { name: "JavaScript", Icon: FaJs },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "Tailwind CSS", Icon: SiTailwindcss },
     ],
   },
   {
@@ -33,18 +51,31 @@ const GROUPS = [
     note: "Libraries and frameworks for modern applications.",
     tools: [
       { name: "React", Icon: FaReact },
-      { name: "React Native", Icon: FaReact },
-      { name: "Next.js", Icon: FaCode },
+      { name: "React Native", Icon: FaMobileAlt },
+      { name: "Node.js", Icon: FaNodeJs },
+      { name: "Express", Icon: FaCode },
+    ],
+  },
+  {
+    key: "uiux",
+    name: "UI/UX & Design",
+    note: "Design tools and component libraries for user-friendly interfaces.",
+    tools: [
+      { name: "Figma", Icon: SiFigma },
+      { name: "shadcn/ui", Icon: SiShadcnui },
+      { name: "DaisyUI", Icon: SiTailwindcss },
+      { name: "Material UI", Icon: FaPalette },
+      { name: "UI Kitten", Icon: FaMobileAlt },
     ],
   },
   {
     key: "backend",
-    name: "Backend",
-    note: "Server-side tools and API development.",
+    name: "Backend & APIs",
+    note: "Server-side tools, email services, and API development.",
     tools: [
-      { name: "Node.js", Icon: FaNodeJs },
-      { name: "Express", Icon: FaCode },
-      { name: "PostgreSQL", Icon: FaDatabase },
+      { name: "REST API", Icon: FaPlug },
+      { name: "Nodemailer", Icon: FaEnvelope },
+      { name: "CRUD", Icon: FaDatabase },
     ],
   },
   {
@@ -53,16 +84,21 @@ const GROUPS = [
     note: "Data storage and real-time services.",
     tools: [
       { name: "Firebase", Icon: SiFirebase },
+      { name: "Firebase Auth", Icon: SiFirebase },
+      { name: "Firebase Storage", Icon: SiFirebase },
       { name: "MySQL", Icon: FaDatabase },
+      { name: "Google Sheets", Icon: SiGooglesheets },
     ],
   },
   {
     key: "principles",
     name: "Principles",
-    note: "Practices for maintainable, scalable software.",
+    note: "Practices for maintainable, reliable software.",
     tools: [
       { name: "System Design", Icon: FaLayerGroup },
       { name: "Clean Architecture", Icon: FaLayerGroup },
+      { name: "Debugging", Icon: FaCode },
+      { name: "Feature Validation", Icon: FaPlug },
     ],
   },
   {
@@ -74,11 +110,15 @@ const GROUPS = [
       { name: "GitHub", Icon: FaGithub },
       { name: "VS Code", Icon: VscVscode },
       { name: "Cursor", Icon: FaMousePointer },
+      { name: "Appsmith", Icon: SiAppsmith },
+      { name: "Google Maps", Icon: SiGooglemaps },
+      { name: "Leaflet", Icon: SiLeaflet },
+      { name: "Nyckel AI", Icon: FaBrain },
     ],
   },
 ];
 
-const TOTAL = GROUPS.reduce((sum, g) => sum + g.tools.length, 0);
+const TOTAL = GROUPS.reduce((sum, group) => sum + group.tools.length, 0);
 
 export default function TechTools() {
   return (
@@ -110,7 +150,6 @@ export default function TechTools() {
                       className: "tech-tool-icon",
                       "aria-hidden": true,
                     })}
-
                     <span>{name}</span>
                   </li>
                 ))}

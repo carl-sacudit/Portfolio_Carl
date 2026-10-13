@@ -1,10 +1,21 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Code2, Database, Play, PlugZap } from 'lucide-react';
+import {
+  BrainCircuit,
+  ChevronLeft,
+  ChevronRight,
+  Code2,
+  Database,
+  Mail,
+  Play,
+  PlugZap,
+} from 'lucide-react';
 import {
   SiAppsmith,
   SiFirebase,
   SiGooglemaps,
+  SiGooglesheets,
   SiJavascript,
+  SiLeaflet,
   SiMongodb,
   SiNodedotjs,
   SiReact,
@@ -13,10 +24,6 @@ import './Projects.css';
 
 import mabels1 from '../../assets/ProjectsList/Mabels1.jpg';
 import mabels2 from '../../assets/ProjectsList/mabels2.jpg';
-import resqnow1 from '../../assets/ProjectsList/Resqnow-1.jpg';
-import resqnow2 from '../../assets/ProjectsList/Resqnow-2.jpg';
-import resqnow3 from '../../assets/ProjectsList/Resqnow-3.jpg';
-import resqnow4 from '../../assets/ProjectsList/Resqnow-4.jpg';
 import resqnowVideo from '../../assets/ProjectsList/Resqnow-video.mp4';
 import eBaligyaVideo from '../../assets/ProjectsList/E-Baligya.mp4';
 import freshStart1 from '../../assets/ProjectsList/FreshStart-1.jpg';
@@ -33,12 +40,22 @@ const TECHNOLOGY_ICONS = {
   'Node.js': SiNodedotjs,
   React: SiReact,
   'Maps API': SiGooglemaps,
+  'Google Maps': SiGooglemaps,
+  Leaflet: SiLeaflet,
+  'Firebase Storage': SiFirebase,
+  'Firebase Auth': SiFirebase,
+  Nodemailer: Mail,
+  'Nyckel AI': BrainCircuit,
+  'Google Sheets': SiGooglesheets,
   MongoDB: SiMongodb,
   CSS: Code2,
   'REST API': PlugZap,
   'REST APIs': PlugZap,
   Appsmith: SiAppsmith,
   CRUD: Database,
+  TypeScript: Code2,
+  'Express.js': PlugZap,
+  MySQL: Database,
 };
 
 const TechnologyTag = ({ technology }) => {
@@ -53,6 +70,23 @@ const TechnologyTag = ({ technology }) => {
 };
 const PROJECTS = [
   // PERSONAL PROJECTS
+    {
+    id: 'stockflow',
+    title: 'StockFlow',
+    year: '2026',
+    category: 'personal',
+    categoryLabel: 'Personal Project',
+    description:
+      'StockFlow is a full-stack warehouse inventory and sales management system built with React, TypeScript, Node.js, Express, and MySQL. It features secure authentication, role-based access control, product management, stock IN and OUT movements, and movement history with date filtering and pagination. The system also supports sales order processing and dashboard reporting for revenue and gross profit, helping users monitor inventory levels, track transactions, and review business performance. This project demonstrates my skills in full-stack development, REST API integration, database management, and validating business logic and calculations.',
+    technologies: [
+      'React',
+      'TypeScript',
+      'Node.js',
+      'Express.js',
+      'MySQL',
+      'REST APIs',
+    ],
+  },
   {
     id: 'mabels-restaurant',
     title: "Mabel's Restaurant",
@@ -81,8 +115,8 @@ const PROJECTS = [
     categoryLabel: 'Personal Project',
     description:
     "ResQnow is a real-time emergency response system designed to help the DRRMO respond to and track reported incidents. The mobile application uses geofencing, Google Maps API, and pin-based location reporting to identify incident locations. Reported incidents trigger real-time alerts with a siren notification on the React/Vite web dashboard, enabling administrators to monitor and respond to incidents more efficiently.",
-    technologies: ['React', 'Firebase', 'Maps API'],
-    images: [resqnow1, resqnow2, resqnow3, resqnow4, resqnowVideo],
+    technologies: ['React Native', 'React', 'Firebase', 'Firebase Auth', 'Google Maps', 'Node.js'],
+    images: [resqnowVideo],
   },
   {
     id: 'e-baligya',
@@ -92,7 +126,17 @@ const PROJECTS = [
     categoryLabel: 'Personal Project',
     description:
     "E-Baligya is a full-stack digital seafood marketplace built to support local vendors in Bacolod, connecting verified sellers with consumers through a centralized platform. It features AI-assisted fish freshness verification using a pretrained machine learning model through Nyckel AI, along with product listings, inventory monitoring, bulk buying, bidding, order management, and real-time order tracking. The platform supports three user roles: Super Admin, Seller, and Consumer. The Super Admin manages seller verification, monitors marketplace activity through data analytics, manages reports and user restrictions, and receives low-stock alerts. Sellers can register and undergo business permit, government ID, and identity verification before managing products, participating in bidding, and tracking orders. Consumers can purchase products individually or through bulk buying and auction-style bidding, receive notifications, and track their orders.",
-    technologies: ['React', 'Node.js', 'MongoDB'],
+    technologies: [
+      'React Native',
+      'React',
+      'Node.js',
+      'Firebase',
+      'Firebase Storage',
+      'Nodemailer',
+      'REST API',
+      'Nyckel AI',
+      'Firebase Auth',
+    ],
     images: [eBaligyaVideo],
   },
 
@@ -105,7 +149,7 @@ const PROJECTS = [
     categoryLabel: 'Client-Based Project',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.',
-    technologies: ['React', 'CSS', 'REST API'],
+    technologies: ['React', 'React Native', 'Leaflet', 'Node.js', 'Firebase'],
     images: [freshStart1, freshStart12, freshStart13],
   },
 
@@ -117,7 +161,7 @@ const PROJECTS = [
     category: 'shopify',
     categoryLabel: 'Internship Project',
     description: 'An examination platform developed during my internship at Thy Web Dev Inc.',
-    technologies: [],
+    technologies: ['Nodemailer', 'Firebase Storage', 'React', 'REST API', 'Firebase Auth'],
     images: [thyExamify1, thyExamify2],
   },
   {
@@ -127,7 +171,7 @@ const PROJECTS = [
     category: 'shopify',
     categoryLabel: 'Internship Project',
     description: 'An employee management app built with Appsmith, supporting create, read, update, and delete workflows.',
-    technologies: ['Appsmith', 'CRUD'],
+    technologies: ['Appsmith', 'Google Sheets', 'CRUD'],
   },
 ];
 
