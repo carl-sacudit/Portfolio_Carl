@@ -70,6 +70,20 @@ const TechnologyTag = ({ technology }) => {
 };
 const PROJECTS = [
   // PERSONAL PROJECTS
+{
+  id: 'portfolio-website',
+  title: 'Portfolio Website',
+  year: '2026',
+  category: 'personal',
+  categoryLabel: 'Personal Project',
+  description:
+    'A personal developer portfolio built with React, JavaScript, and CSS to showcase my technical skills, development experience, and projects. Inspired by the dark fantasy aesthetic and visual style of Warmane.com, the website features a dark-themed interface, animated UI elements, interactive project cards, and dedicated sections for my background, technical tools, work experience, and contact information. Designed with a focus on responsive layouts, reusable components, and an engaging user experience.',
+  technologies: [
+    'React',
+    'JavaScript',
+    'CSS3',
+  ],
+},
     {
     id: 'stockflow',
     title: 'StockFlow',
