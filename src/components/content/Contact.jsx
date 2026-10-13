@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import "./Contact.css";
 
 const CONTACT_INFO = [
@@ -14,43 +14,21 @@ const CONTACT_INFO = [
   },
   {
     label: "Location",
-    value: "Purok Magayon, Brgy. R.S.B., La Carlota City, Negros Occidental",
+    value: "La Carlota City, Negros Occidental",
   },
 ];
 
-// Replace the "#" links with your real profile URLs
 const SOCIALS = [
   { name: "GitHub", href: "https://github.com/Isouuul" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/carl-bryan-sacudit-9b1597404" },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/carl-bryan-sacudit-9b1597404",
+  },
   { name: "Facebook", href: "https://www.facebook.com/hesoyam123099" },
   { name: "Instagram", href: "https://www.instagram.com/_hue_forya/" },
 ];
 
-const EMPTY_FORM = { name: "", email: "", subject: "", message: "" };
-
 export default function Contact() {
-  const [form, setForm] = useState(EMPTY_FORM);
-  const [sent, setSent] = useState(false);
-
-  const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    if (sent) setSent(false);
-  };
-
-  // Opens the visitor's email app with the message filled in.
-  // Swap this for EmailJS / Formspree / your own API when you want
-  // messages delivered without leaving the site.
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const body = `${form.message}\n\nFrom: ${form.name} (${form.email})`;
-    const mailto = `mailto:${CONTACT_INFO[0].value}?subject=${encodeURIComponent(
-      form.subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    setSent(true);
-    setForm(EMPTY_FORM);
-  };
-
   return (
     <div className="contact-layout">
       <section className="contact-panel" aria-labelledby="contact-title">
@@ -61,74 +39,36 @@ export default function Contact() {
           <span className="contact-rule" aria-hidden="true" />
         </header>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-          <div className="contact-row">
-            <div className="contact-field">
-              <label htmlFor="contact-name">Your name</label>
-              <input
-                id="contact-name"
-                name="name"
-                type="text"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="John Doe"
-                autoComplete="name"
-                required
-              />
-            </div>
-            <div className="contact-field">
-              <label htmlFor="contact-email">Your email</label>
-              <input
-                id="contact-email"
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                placeholder="john@example.com"
-                autoComplete="email"
-                required
-              />
-            </div>
-          </div>
+        <div className="contact-coming-soon" role="status">
+          <span className="contact-coming-soon-icon" aria-hidden="true">
+            ✉
+          </span>
 
-          <div className="contact-field">
-            <label htmlFor="contact-subject">Subject</label>
-            <input
-              id="contact-subject"
-              name="subject"
-              type="text"
-              value={form.subject}
-              onChange={handleChange}
-              placeholder="Project collaboration"
-              required
-            />
-          </div>
+          <h3>Contact Form Coming Soon</h3>
 
-          <div className="contact-field">
-            <label htmlFor="contact-message">Message</label>
-            <textarea
-              id="contact-message"
-              name="message"
-              rows={6}
-              value={form.message}
-              onChange={handleChange}
-              placeholder="Tell me about your project..."
-              required
-            />
-          </div>
+          <p>
+            I'm currently updating my contact form and email delivery
+            integration. In the meantime, feel free to reach me directly
+            through email or connect with me on social media.
+          </p>
 
-          <div className="contact-actions">
-            <button type="submit" className="contact-send">
-              Send message
-            </button>
-            <p className="contact-status" role="status" aria-live="polite">
-              {sent ? "Your email app should open with the message ready to send." : ""}
-            </p>
-          </div>
-        </form>
+          <a
+            className="contact-send"
+            href="mailto:carlbryan123099@gmail.com"
+          >
+            Email Me
+          </a>
+
+          <span className="contact-coming-soon-note">
+            Nodemailer integration in progress
+          </span>
+        </div>
       </section>
 
-      <aside className="contact-panel contact-side" aria-labelledby="contact-info-title">
+      <aside
+        className="contact-panel contact-side"
+        aria-labelledby="contact-info-title"
+      >
         <h2 id="contact-info-title" className="contact-side-title">
           Contact details
         </h2>
@@ -137,6 +77,7 @@ export default function Contact() {
           {CONTACT_INFO.map((item) => (
             <li key={item.label} className="contact-info-item">
               <span className="contact-info-label">{item.label}</span>
+
               {item.href ? (
                 <a className="contact-info-value" href={item.href}>
                   {item.value}
@@ -149,16 +90,17 @@ export default function Contact() {
         </ul>
 
         <h3 className="contact-social-title">Find me online</h3>
+
         <div className="contact-socials">
-          {SOCIALS.map((s) => (
+          {SOCIALS.map((social) => (
             <a
-              key={s.name}
+              key={social.name}
               className="contact-social"
-              href={s.href}
+              href={social.href}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {s.name}
+              {social.name}
             </a>
           ))}
         </div>
